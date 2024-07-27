@@ -1,0 +1,87 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden; /* Added to prevent overflow */
+}
+
+h1 {
+  text-align: center;
+}
+
+.palette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Increased gap to provide more space between color boxes */
+  margin-top: 20px;
+  padding: 10px; /* Added padding to prevent touching the edges */
+}
+
+.color-box {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 4px;
+  position: relative;
+  margin-bottom: 60px; /* Added margin to provide space for the color info */
+}
+
+.color-box .color-info {
+  width: 100%;
+  position: absolute;
+  bottom: -50px; /* Adjusted to make room for the color info below */
+  left: 0;
+  text-align: center;
+  font-size: 12px;
+  color: #000;
+  background-color: rgba(255, 255, 255, 0.9); /* Background for readability */
+  padding: 5px;
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Added for better visibility */
+}
+
+input[type="text"] {
+  width: calc(50% - 20px);
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="color"] {
+  margin: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+select {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
