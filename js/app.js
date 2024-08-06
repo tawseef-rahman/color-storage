@@ -3,38 +3,51 @@ const { useState } = React;
 function App() {
   const [palettes, setPalettes] = useState([]);
   const [paletteName, setPaletteName] = useState("");
-  const [colorCode, setColorCode] = useState("");
+  const [colorCode, setColorCode] = useState("#ffffff");
   const [selectedPalette, setSelectedPalette] = useState(null);
+  const [error, setError] = useState("");
 
   const addPalette = () => {
     if (paletteName.trim()) {
       setPalettes([...palettes, { name: paletteName, colors: [] }]);
       setPaletteName("");
+      setError("");
+    } else {
+      setError("Please enter a palette name.");
     }
   };
 
   const addColor = () => {
-    if (selectedPalette !== null && colorCode.trim()) {
-      const updatedPalettes = palettes.map((palette, index) => {
-        if (index === selectedPalette) {
-          return {
-            ...palette,
-            colors: [...palette.colors, colorCode],
-          };
-        }
-        return palette;
-      });
-      setPalettes(updatedPalettes);
-      setColorCode("");
+    if (selectedPalette !== null) {
+      if (colorCode.trim()) {
+        const updatedPalettes = palettes.map((palette, index) => {
+          if (index === selectedPalette) {
+            return {
+              ...palette,
+              colors: [...palette.colors, colorCode],
+            };
+          }
+          return palette;
+        });
+        setPalettes(updatedPalettes);
+        setColorCode("#ffffff");
+        setError("");
+      } else {
+        setError("Please enter a valid color code.");
+      }
+    } else {
+      setError("Please select a palette first.");
     }
   };
 
   const viewPalette = (index) => {
     setSelectedPalette(index);
+    setError("");
   };
 
   const viewAllPalettes = () => {
     setSelectedPalette(null);
+    setError("");
   };
 
   return (
@@ -62,8 +75,7 @@ function App() {
         <div className="palette-view">
           <h2>{palettes[selectedPalette].name}</h2>
           <input
-            type="text"
-            placeholder="Enter HEX or RGB Color Code"
+            type="color"
             value={colorCode}
             onChange={(e) => setColorCode(e.target.value)}
           />
@@ -79,6 +91,7 @@ function App() {
           </div>
         </div>
       )}
+      {error && <div className="error">{error}</div>}
     </div>
   );
 }
