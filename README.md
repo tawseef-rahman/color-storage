@@ -1,2 +1,2 @@
-# color-palette
+# ColorStorage
  
