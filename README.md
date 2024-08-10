@@ -1,5 +1,7 @@
 # ColorStorage
 
+## Project Overview
+
 ColorStorage is a web application that allows users to create and manage color palettes. Users can input colors using HEX or RGB codes and view their saved palettes.
 
 ## Features
