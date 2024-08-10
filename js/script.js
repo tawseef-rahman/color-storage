@@ -94,7 +94,7 @@ function App() {
 
   return (
     <div className="container">
-      <h1>Color Palette Saver</h1>
+      <h1>ColorStorage</h1>
       <div>
         <input
           type="text"
